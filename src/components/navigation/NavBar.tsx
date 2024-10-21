@@ -3,6 +3,7 @@ import Logo from "../shared/Logo";
 import { useEffect, useMemo, useState } from "react";
 import { animate, AnimationSequence, stagger } from "framer-motion";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 const links = [
   { route: "/#hero", label: "Home" },
@@ -77,7 +78,9 @@ const NavBar = () => {
     <>
       <nav className="h-[80px] bg-bg px-4 shadow-sm">
         <div className="max-w-desktop flex justify-between mx-auto h-full items-center">
-          <Logo />
+          <Link to={"/"} onClick={() => setShowMobileNavBar(false)}>
+            <Logo />
+          </Link>
           <button
             onClick={() => setShowMobileNavBar(!showMobileNavBar)}
             type="button"
